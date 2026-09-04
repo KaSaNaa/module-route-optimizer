@@ -35,30 +35,39 @@ export function ControlPanel({
     return currentNodes.find((n) => n.id === id)?.name ?? `Node #${id}`;
   };
 
-  const canRun = selectedGraphId !== null && sourceNodeId !== null && targetNodeId !== null;
+  const canRun =
+    selectedGraphId !== null &&
+    sourceNodeId !== null &&
+    targetNodeId !== null;
 
   return (
-    <aside style={{
-      width: 280,
-      flexShrink: 0,
-      background: '#0f172a',
-      borderRight: '1px solid #1e293b',
-      padding: '20px 16px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 20,
-      overflowY: 'auto',
-    }}>
+    <aside
+      style={{
+        width: 280,
+        flexShrink: 0,
+        background: '#0f172a',
+        borderRight: '1px solid #1e293b',
+        padding: '20px 16px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 20,
+        overflowY: 'auto',
+      }}
+    >
       {/* Graph Selector */}
       <section>
         <label style={labelStyle}>Network / Graph</label>
+
         <select
           value={selectedGraphId ?? ''}
           onChange={(e) => onSelectGraph(Number(e.target.value))}
           style={selectStyle}
           disabled={loading}
         >
-          <option value="" disabled>Select a network…</option>
+          <option value="" disabled>
+            Select a network…
+          </option>
+
           {graphs.map((g) => (
             <option key={g.id} value={g.id}>
               {g.name} ({g.nodeCount}N / {g.edgeCount}E)
@@ -70,16 +79,42 @@ export function ControlPanel({
       {/* Node Selection */}
       <section>
         <label style={labelStyle}>Node Selection</label>
-        <p style={hintStyle}>Click nodes on the canvas to select source then target.</p>
+
+        <p style={hintStyle}>
+          Click nodes on the canvas to select source then target.
+        </p>
+
         <div style={nodeBoxStyle}>
-          <span style={{ ...dotStyle, background: '#22c55e' }} />
-          <span style={nodeNameStyle}>Source: {getNodeName(sourceNodeId)}</span>
+          <span
+            style={{
+              ...dotStyle,
+              background: '#22c55e',
+            }}
+          />
+
+          <span style={nodeNameStyle}>
+            Source: {getNodeName(sourceNodeId)}
+          </span>
         </div>
+
         <div style={nodeBoxStyle}>
-          <span style={{ ...dotStyle, background: '#ef4444' }} />
-          <span style={nodeNameStyle}>Target: {getNodeName(targetNodeId)}</span>
+          <span
+            style={{
+              ...dotStyle,
+              background: '#ef4444',
+            }}
+          />
+
+          <span style={nodeNameStyle}>
+            Target: {getNodeName(targetNodeId)}
+          </span>
         </div>
-        <button onClick={onReset} style={ghostBtnStyle} disabled={loading}>
+
+        <button
+          onClick={onReset}
+          style={ghostBtnStyle}
+          disabled={loading}
+        >
           ↺ Reset selection
         </button>
       </section>
@@ -87,32 +122,64 @@ export function ControlPanel({
       {/* Algorithm Selector */}
       <section>
         <label style={labelStyle}>Algorithm</label>
+
         {ALGORITHMS.map((algo) => (
-          <label key={algo.value} style={{
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: 8,
-            marginBottom: 10,
-            cursor: 'pointer',
-          }}>
+          <label
+            key={algo.value}
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: 8,
+              marginBottom: 10,
+              cursor: 'pointer',
+            }}
+          >
             <input
               type="radio"
               name="algorithm"
               value={algo.value}
               checked={selectedAlgorithm === algo.value}
               onChange={() => onSelectAlgorithm(algo.value)}
-              style={{ marginTop: 3, accentColor: '#6366f1' }}
+              style={{
+                marginTop: 3,
+                accentColor: '#6366f1',
+              }}
             />
+
             <div>
-              <div style={{ color: '#e2e8f0', fontSize: 13, fontWeight: 600 }}>{algo.label}</div>
-              <div style={{ color: '#64748b', fontSize: 11, lineHeight: 1.4 }}>{algo.description}</div>
+              <div
+                style={{
+                  color: '#e2e8f0',
+                  fontSize: 13,
+                  fontWeight: 600,
+                }}
+              >
+                {algo.label}
+              </div>
+
+              <div
+                style={{
+                  color: '#64748b',
+                  fontSize: 11,
+                  lineHeight: 1.4,
+                }}
+              >
+                {algo.description}
+              </div>
             </div>
           </label>
         ))}
       </section>
 
       {/* Action Buttons */}
-      <section style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+      <section
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 10,
+        }}
+      >
+        {/* Find Route */}
         <button
           onClick={onFindRoute}
           disabled={!canRun || loading}
@@ -120,28 +187,50 @@ export function ControlPanel({
         >
           {loading ? '⏳ Computing…' : '▶ Find Route'}
         </button>
-        <button
-          onClick={onCompareAll}
-          disabled={!canRun || loading}
-          style={secondaryBtnStyle(!canRun || loading)}
-        >
-          ⚖ Compare All Algorithms
-        </button>
+
+        
       </section>
 
       {/* Legend */}
       <section>
         <label style={labelStyle}>Legend</label>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 5,
+          }}
+        >
           {[
             { color: '#22c55e', label: 'Source node' },
             { color: '#ef4444', label: 'Target node' },
             { color: '#f59e0b', label: 'Shortest path' },
             { color: '#6366f1', label: 'Unvisited node' },
           ].map(({ color, label }) => (
-            <div key={label} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span style={{ ...dotStyle, background: color }} />
-              <span style={{ color: '#94a3b8', fontSize: 12 }}>{label}</span>
+            <div
+              key={label}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 8,
+              }}
+            >
+              <span
+                style={{
+                  ...dotStyle,
+                  background: color,
+                }}
+              />
+
+              <span
+                style={{
+                  color: '#94a3b8',
+                  fontSize: 12,
+                }}
+              >
+                {label}
+              </span>
             </div>
           ))}
         </div>
@@ -215,7 +304,7 @@ const primaryBtnStyle = (disabled) => ({
 
 const secondaryBtnStyle = (disabled) => ({
   padding: '10px 0',
-  background: 'transparent',
+  background: disabled ? '#1e293b' : 'transparent',
   color: disabled ? '#475569' : '#6366f1',
   border: `1px solid ${disabled ? '#1e293b' : '#6366f1'}`,
   borderRadius: 6,
@@ -234,3 +323,4 @@ const ghostBtnStyle = {
   cursor: 'pointer',
   marginTop: 4,
 };
+
