@@ -27,7 +27,7 @@ export function ResultsPanel({ result, nodes }) {
             <span key={i}>
               <span style={pathNodeStyle}>{name}</span>
               {i < pathNames.length - 1 && (
-                <span style={{ color: '#475569', margin: '0 4px' }}>→</span>
+                <span style={{ color: '#64748b', margin: '0 4px' }}>→</span>
               )}
             </span>
           ))}
@@ -48,7 +48,7 @@ function Metric({ label, value, accent }) {
   return (
     <div style={metricItemStyle}>
       <div style={{ color: '#64748b', fontSize: 11, marginBottom: 4 }}>{label}</div>
-      <div style={{ color: accent ? '#6366f1' : '#e2e8f0', fontSize: 18, fontWeight: 700 }}>
+      <div style={{ color: accent ? '#2563eb' : '#1e293b', fontSize: 18, fontWeight: 700 }}>
         {value}
       </div>
     </div>
@@ -56,32 +56,32 @@ function Metric({ label, value, accent }) {
 }
 
 const containerStyle = {
-  background: '#0f172a',
-  border: '1px solid #1e293b',
+  background: '#ffffff',
+  border: '1px solid #e2e8f0',
   borderRadius: 10,
   padding: 16,
   marginBottom: 12,
 };
 
 const titleStyle = {
-  color: '#e2e8f0',
+  color: '#1e293b',
   fontSize: 15,
   fontWeight: 700,
   margin: '0 0 12px 0',
 };
 
 const errorBoxStyle = {
-  background: '#1e293b',
-  border: '1px solid #7f1d1d',
+  background: '#e2e8f0',
+  border: '1px solid #fecaca',
   borderRadius: 6,
   padding: '8px 12px',
-  color: '#fca5a5',
+  color: '#b91c1c',
   fontSize: 12,
   marginBottom: 10,
 };
 
 const pathBoxStyle = {
-  background: '#1e293b',
+  background: '#e2e8f0',
   borderRadius: 6,
   padding: '10px 12px',
   marginBottom: 12,
@@ -92,8 +92,8 @@ const pathBoxStyle = {
 };
 
 const pathNodeStyle = {
-  background: '#312e81',
-  color: '#a5b4fc',
+  background: '#eff6ff',
+  color: '#2563eb',
   borderRadius: 4,
   padding: '1px 6px',
   fontSize: 13,
@@ -107,7 +107,7 @@ const metricsGridStyle = {
 };
 
 const metricItemStyle = {
-  background: '#1e293b',
+  background: '#e2e8f0',
   borderRadius: 6,
   padding: '10px 12px',
 };

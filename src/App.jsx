@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './styles/index.css';
+import './styles/idss-theme.css';
 
 import { useRouteOptimizer } from './hooks/useRouteOptimizer.js';
 import { ControlPanel } from './components/ControlPanel.jsx';
@@ -185,12 +186,12 @@ function getPathEdgeIds(edges, pathNodeIds) {
 }
 
 const appStyle = {
-  width: '100vw',
-  height: '100vh',
+  width: '100%',
+  minHeight: '72vh',
   display: 'flex',
   flexDirection: 'column',
-  background: '#020617',
-  color: '#e2e8f0',
+  background: '#f4f6fb',
+  color: '#1e293b',
   overflow: 'hidden',
 };
 
@@ -201,15 +202,15 @@ const headerStyle = {
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '0 24px',
-  background: '#0f172a',
-  borderBottom: '1px solid #1e293b',
+  background: '#ffffff',
+  borderBottom: '1px solid #e2e8f0',
 };
 
 const titleStyle = {
   margin: 0,
   fontSize: 22,
   fontWeight: 700,
-  color: '#f8fafc',
+  color: '#0f172a',
 };
 
 const subtitleStyle = {
@@ -224,7 +225,7 @@ const networkInfoStyle = {
   alignItems: 'flex-end',
   gap: 3,
   fontSize: 12,
-  color: '#94a3b8',
+  color: '#64748b',
 };
 
 const mainStyle = {
@@ -246,20 +247,20 @@ const contentStyle = {
 const graphContainerStyle = {
   flex: 1,
   minHeight: 500,
-  background: '#0f172a',
-  border: '1px solid #1e293b',
+  background: '#ffffff',
+  border: '1px solid #e2e8f0',
   borderRadius: 10,
   overflow: 'hidden',
   marginBottom: 12,
 };
 
 const errorStyle = {
-  background: '#450a0a',
-  border: '1px solid #7f1d1d',
+  background: '#fef2f2',
+  border: '1px solid #fecaca',
   borderRadius: 8,
   padding: '10px 14px',
   marginBottom: 12,
-  color: '#fca5a5',
+  color: '#b91c1c',
   fontSize: 13,
 };
 
@@ -269,14 +270,14 @@ const emptyStateStyle = {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  background: '#0f172a',
-  border: '1px solid #1e293b',
+  background: '#ffffff',
+  border: '1px solid #e2e8f0',
   borderRadius: 10,
   textAlign: 'center',
 };
 
 const networkHeadingStyle = {
-  color: '#f8fafc',
+  color: '#0f172a',
 };
 
 export default App;

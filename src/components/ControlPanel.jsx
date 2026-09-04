@@ -45,8 +45,8 @@ export function ControlPanel({
       style={{
         width: 280,
         flexShrink: 0,
-        background: '#0f172a',
-        borderRight: '1px solid #1e293b',
+        background: '#ffffff',
+        borderRight: '1px solid #e2e8f0',
         padding: '20px 16px',
         display: 'flex',
         flexDirection: 'column',
@@ -142,14 +142,14 @@ export function ControlPanel({
               onChange={() => onSelectAlgorithm(algo.value)}
               style={{
                 marginTop: 3,
-                accentColor: '#6366f1',
+                accentColor: '#2563eb',
               }}
             />
 
             <div>
               <div
                 style={{
-                  color: '#e2e8f0',
+                  color: '#1e293b',
                   fontSize: 13,
                   fontWeight: 600,
                 }}
@@ -206,7 +206,7 @@ export function ControlPanel({
             { color: '#22c55e', label: 'Source node' },
             { color: '#ef4444', label: 'Target node' },
             { color: '#f59e0b', label: 'Shortest path' },
-            { color: '#6366f1', label: 'Unvisited node' },
+            { color: '#2563eb', label: 'Unvisited node' },
           ].map(({ color, label }) => (
             <div
               key={label}
@@ -225,7 +225,7 @@ export function ControlPanel({
 
               <span
                 style={{
-                  color: '#94a3b8',
+                  color: '#64748b',
                   fontSize: 12,
                 }}
               >
@@ -241,7 +241,7 @@ export function ControlPanel({
 
 const labelStyle = {
   display: 'block',
-  color: '#94a3b8',
+  color: '#64748b',
   fontSize: 11,
   fontWeight: 700,
   letterSpacing: '0.1em',
@@ -250,7 +250,7 @@ const labelStyle = {
 };
 
 const hintStyle = {
-  color: '#475569',
+  color: '#64748b',
   fontSize: 11,
   marginBottom: 8,
   lineHeight: 1.4,
@@ -259,10 +259,10 @@ const hintStyle = {
 const selectStyle = {
   width: '100%',
   padding: '8px 10px',
-  background: '#1e293b',
-  border: '1px solid #334155',
+  background: '#e2e8f0',
+  border: '1px solid #cbd5e1',
   borderRadius: 6,
-  color: '#e2e8f0',
+  color: '#1e293b',
   fontSize: 13,
   cursor: 'pointer',
 };
@@ -272,13 +272,13 @@ const nodeBoxStyle = {
   alignItems: 'center',
   gap: 8,
   padding: '6px 10px',
-  background: '#1e293b',
+  background: '#e2e8f0',
   borderRadius: 6,
   marginBottom: 6,
 };
 
 const nodeNameStyle = {
-  color: '#e2e8f0',
+  color: '#1e293b',
   fontSize: 13,
   fontWeight: 500,
 };
@@ -292,8 +292,8 @@ const dotStyle = {
 
 const primaryBtnStyle = (disabled) => ({
   padding: '10px 0',
-  background: disabled ? '#1e293b' : '#6366f1',
-  color: disabled ? '#475569' : '#fff',
+  background: disabled ? '#e2e8f0' : '#2563eb',
+  color: disabled ? '#64748b' : '#fff',
   border: 'none',
   borderRadius: 6,
   fontSize: 13,
@@ -304,9 +304,9 @@ const primaryBtnStyle = (disabled) => ({
 
 const secondaryBtnStyle = (disabled) => ({
   padding: '10px 0',
-  background: disabled ? '#1e293b' : 'transparent',
-  color: disabled ? '#475569' : '#6366f1',
-  border: `1px solid ${disabled ? '#1e293b' : '#6366f1'}`,
+  background: disabled ? '#e2e8f0' : 'transparent',
+  color: disabled ? '#64748b' : '#2563eb',
+  border: `1px solid ${disabled ? '#e2e8f0' : '#2563eb'}`,
   borderRadius: 6,
   fontSize: 13,
   fontWeight: 600,
@@ -317,7 +317,7 @@ const ghostBtnStyle = {
   padding: '6px 10px',
   background: 'transparent',
   color: '#64748b',
-  border: '1px solid #334155',
+  border: '1px solid #cbd5e1',
   borderRadius: 6,
   fontSize: 12,
   cursor: 'pointer',

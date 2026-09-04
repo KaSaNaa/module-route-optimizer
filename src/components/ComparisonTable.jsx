@@ -40,7 +40,7 @@ export function ComparisonTable({ results, nodes }) {
                 <Td>
                   <span style={{
                     fontSize: 11,
-                    color: r.found ? '#a5b4fc' : '#64748b',
+                    color: r.found ? '#2563eb' : '#64748b',
                     display: 'block',
                     whiteSpace: 'nowrap',
                     overflow: 'hidden',
@@ -67,7 +67,7 @@ export function ComparisonTable({ results, nodes }) {
           })}
         </tbody>
       </table>
-      <p style={{ color: '#475569', fontSize: 11, marginTop: 8, marginBottom: 0 }}>
+      <p style={{ color: '#64748b', fontSize: 11, marginTop: 8, marginBottom: 0 }}>
         🏆 Gold cells indicate the best value in each column among algorithms that found a path.
       </p>
     </div>
@@ -84,7 +84,7 @@ function Th({ children, width }) {
       fontWeight: 700,
       letterSpacing: '0.05em',
       textTransform: 'uppercase',
-      borderBottom: '1px solid #1e293b',
+      borderBottom: '1px solid #e2e8f0',
       whiteSpace: 'nowrap',
       width: width ?? undefined,
       minWidth: width ?? undefined,
@@ -96,11 +96,11 @@ function Td({ children, bold, winner, width }) {
   return (
     <td style={{
       padding: '8px 10px',
-      color: winner ? '#fbbf24' : bold ? '#e2e8f0' : '#94a3b8',
+      color: winner ? '#b45309' : bold ? '#1e293b' : '#64748b',
       fontSize: 12,
       fontWeight: winner ? 700 : bold ? 600 : 400,
-      borderBottom: '1px solid #0f172a',
-      background: winner ? 'rgba(251,191,36,0.05)' : 'transparent',
+      borderBottom: '1px solid #ffffff',
+      background: winner ? 'rgba(37,99,235,0.06)' : 'transparent',
       width: width ?? undefined,
       minWidth: width ?? undefined,
       verticalAlign: 'middle',
@@ -109,15 +109,15 @@ function Td({ children, bold, winner, width }) {
 }
 
 const containerStyle = {
-  background: '#0f172a',
-  border: '1px solid #1e293b',
+  background: '#ffffff',
+  border: '1px solid #e2e8f0',
   borderRadius: 10,
   padding: 16,
   marginBottom: 12,
 };
 
 const titleStyle = {
-  color: '#e2e8f0',
+  color: '#1e293b',
   fontSize: 15,
   fontWeight: 700,
   margin: '0 0 12px 0',

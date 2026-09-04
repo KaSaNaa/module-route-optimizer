@@ -21,7 +21,7 @@ export function GraphCanvas({
       const isTarget  = n.id === targetNodeId;
       const isOnPath  = pathNodeIds.includes(n.id);
 
-      let bg = '#6366f1'; // default: indigo
+      let bg = '#2563eb'; // default: indigo
       if (isSource)     bg = '#22c55e'; // green
       else if (isTarget) bg = '#ef4444'; // red
       else if (isOnPath) bg = '#f59e0b'; // amber
@@ -58,12 +58,12 @@ export function GraphCanvas({
         type: 'default',
         animated: isOnPath,
         label: String(e.weight),
-        labelStyle: { fontSize: 10, fill: isOnPath ? '#f59e0b' : '#cbd5e1' },
-        labelBgStyle: { fill: '#0f172a', fillOpacity: 0.8 },
+        labelStyle: { fontSize: 10, fill: isOnPath ? '#f59e0b' : '#475569' },
+        labelBgStyle: { fill: '#ffffff', fillOpacity: 0.8 },
         labelBgPadding: [4, 4],
         labelBgBorderRadius: 4,
         style: {
-          stroke: isOnPath ? '#f59e0b' : '#334155',
+          stroke: isOnPath ? '#f59e0b' : '#cbd5e1',
           strokeWidth: isOnPath ? 3 : 1.5,
         },
         markerEnd: e.directed ? 'url(#react-flow__arrowclosed)' : undefined,
@@ -91,9 +91,9 @@ export function GraphCanvas({
         nodesDraggable={false}
         nodesConnectable={false}
         elementsSelectable={false}
-        colorMode="dark"
+        colorMode="light"
       >
-        <Background color="#1e293b" gap={20} />
+        <Background color="#cbd5e1" gap={20} />
         <Controls />
       </ReactFlow>
     </div>
